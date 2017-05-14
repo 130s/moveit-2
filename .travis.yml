@@ -12,10 +12,11 @@ notifications:
       - 130s@2000.jukuin.keio.ac.jp
 env:
   matrix:
-    - ROS_DISTRO=kinetic ROS_REPO=ros              UPSTREAM_WORKSPACE=moveit.rosinstall
-    - ROS_DISTRO=kinetic ROS_REPO=ros-shadow-fixed UPSTREAM_WORKSPACE=moveit.rosinstall
-    - ROS_DISTRO=kinetic TEST=clang-format         UPSTREAM_WORKSPACE=moveit.rosinstall
+    - ROS_DISTRO=lunar ROS_REPO=ros              UPSTREAM_WORKSPACE=moveit.rosinstall
+    - ROS_DISTRO=lunar ROS_REPO=ros-shadow-fixed UPSTREAM_WORKSPACE=moveit.rosinstall
+    - ROS_DISTRO=lunar TEST=clang-format         UPSTREAM_WORKSPACE=moveit.rosinstall
+    - ROS_DISTRO=lunar PRERELEASE=true           UBUNTU_OS_CODE_NAME="zesty"
 before_script:
-  - git clone -q https://github.com/ros-planning/moveit_ci.git .moveit_ci
+  - git clone -q https://github.com/ros-industrial/industrial_ci.git .moveit_ci
 script:
   - source .moveit_ci/travis.sh
